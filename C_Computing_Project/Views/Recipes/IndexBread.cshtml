@@ -1,0 +1,61 @@
+﻿@model IEnumerable<C_Computing_Project.Models.Recipe>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    string b = "";
+}
+<head>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karma">
+    <style>
+        body, h1, h2, h3, h4, h5, h6 {
+            font-family: "Karma", sans-serif
+        }
+
+        .w3-bar-block .w3-bar-item {
+            padding: 20px
+        }
+    </style>
+</head>
+
+@*<h1>Index</h1>*@
+
+@*<p>
+    <a asp-action="Create">Create New</a>
+</p>*@
+<div class="w3-main w3-content w3-padding" style="max-width:1200px;margin-top:100px">
+
+    @foreach (var item in Model)
+    {
+        if(item.Tags.EndsWith("Bread")){
+        <!-- First Photo Grid-->
+        <div class="w3-row-padding w3-padding-16 w3-center" id="food">
+            <div class="w3-quarter">
+
+                <img src=@Html.DisplayFor(modelItem => item.ImageUrl) style="width:100%">
+                <h3> @Html.DisplayFor(modelItem => item.Name) </h3>
+                <h4><a asp-action="Edit" asp-route-id="@item.Id">Edit</a> | <a asp-action="Delete" asp-route-id="@item.Id">Delete</a></h4>
+
+            </div>
+            <div class="w3-quarter">
+                <h2>Ingredients:</h2> <br />
+                <h3>@Html.DisplayFor(modelItem => item.Ingredients) </h3>
+
+                @*<p>Once again, some random text to lorem lorem lorem lorem ipsum text praesent tincidunt ipsum lipsum.</p>*@
+
+            </div>
+            <div class="w3-quarter">
+                <h2>Description:</h2> <br />
+                <h3>@Html.DisplayFor(modelItem => item.Description)</h3>
+                @*<p>Lorem ipsum text praesent tincidunt ipsum lipsum.</p>
+            <p>What else?</p>*@
+            </div>
+            <div class="w3-quarter">
+                <h2>Tags:</h2> <br />
+                <h3> @Html.DisplayFor(modelItem => item.Tags)</h3>
+            </div>
+
+        </div>
+        }
+    }
+</div>
