@@ -25,6 +25,23 @@ namespace C_Computing_Project.Controllers
               return View(await _context.Recipe.ToListAsync());
         }
 
+        public async Task<IActionResult> IndexBread()
+        {
+            return View(await _context.Recipe.ToListAsync());
+        }
+        public async Task<IActionResult> IndexFish()
+        {
+            return View(await _context.Recipe.ToListAsync());
+        }
+        public async Task<IActionResult> IndexDessert()
+        {
+            return View(await _context.Recipe.ToListAsync());
+        }
+        public async Task<IActionResult> IndexSalad()
+        {
+            return View(await _context.Recipe.ToListAsync());
+        }
+
         // GET: Recipes/Details/5
         public async Task<IActionResult> Details(int? id)
         {

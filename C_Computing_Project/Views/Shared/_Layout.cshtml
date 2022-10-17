@@ -47,7 +47,7 @@
                     <div id="main-nav" class="collapse navbar-collapse">
                         <ul class="nav navbar-nav">
                             <li><a href="~/index.html">Home</a></li>
-                            <li><a href="~/menu.html">Our Menus</a></li>
+                            <li><a href="~/menu.html">Our Recipes</a></li>
                             <li><a href="~/blog.html">Blog Entries</a></li>
                             <li><a href="~/contact.html">Contact Us</a></li>
                             <li><a href="../Recipes/Create">ADD</a></li>
@@ -81,6 +81,82 @@
             </div>
         </nav>*@
     </header>
+
+    <section class="banner">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <h4>Here you can find delecious recipes for a</h4>
+                    <h2>Variety Of Foods</h2>
+                    <p>The recipes at your service. You are invited to click new recipes and write us what you think about the recipes.</p>
+                    <div class="primary-button">
+                        <a href="../Views/Recipes/Create.cshtml">Add Right Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    @*<section class="cook-delecious">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-md-offset-1">
+                    <div class="first-image">
+                        <img src="~/img/cook_01.jpg" alt="">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="cook-content">
+                        <h4>Please Choose</h4>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="second-image">
+                        <img src="~/img/cook_02.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="services">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="service-item">
+                        <a href="../Views/Recipes/IndexSalad">
+                            <img src="https://media.istockphoto.com/photos/homemade-autumn-apple-walnut-spinach-salad-picture-id598567798?k=20&m=598567798&s=612x612&w=0&h=1L3VM0tAPpAlUa6OM5NMACGmleEygIdI2sficMyuAOc=" alt="Salads">
+                            <h4>Salads</h4>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="service-item">
+                        <a href="../Views/Recipes/IndexFish.cshtml">
+                            <img src="https://media.istockphoto.com/photos/fillet-of-salmon-with-vegetable-picture-id175028181?k=20&m=175028181&s=612x612&w=0&h=18QGgb9V2Mxcf3MG1AHL53XtIWLFsbWWPmRb5ngAhIs=" alt="Fish">
+                            <h4>Fish</h4>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="service-item">
+                        <a href="../Views/Recipes/IndexBread.cshtml">
+                            <img src="https://media.istockphoto.com/photos/loaf-of-bread-still-life-picture-id947886300?k=20&m=947886300&s=612x612&w=0&h=KboPTpxXhTTc8PHsdsMiBj6Z6yRqmXn9Esr2Hf7n1I0=" alt="Breads">
+                            <h4>Breads</h4>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="service-item">
+                        <a href="../Views/Recipes/IndexDessert.cshtml">
+                            <img src="https://media.istockphoto.com/photos/vanilla-new-york-cheesecake-decorated-with-fresh-berries-picture-id1356624996?k=20&m=1356624996&s=612x612&w=0&h=AB2U-klxtuZyuiYUfVxo8V_OAHzdTaoblNc3Hjy6OrU=" alt="Desserts">
+                            <h4>Desserts</h4>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>*@
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()

@@ -1,9 +1,10 @@
 ﻿@model IEnumerable<C_Computing_Project.Models.Recipe>
 
 @{
-    ViewData["Title"] = "IndexBread";
+    ViewData["Title"] = "IndexDessert";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
 <head>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karma">
@@ -27,7 +28,7 @@
 
     @foreach (var item in Model)
     {
-        if (item.Tags.EndsWith("Bread"))
+        if (item.Tags.EndsWith("Dessert"))
         {
             <!-- First Photo Grid-->
             <div class="w3-row-padding w3-padding-16 w3-center" id="food">
