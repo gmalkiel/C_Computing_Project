@@ -11,12 +11,12 @@ namespace C_Computing_Project.GateWayServer.Controllers
     {
         // GET: api/<WeatherCalController>
         [HttpGet]
-        public WeatherParams Get([FromQuery] WeatherParams data)
+        public double Get([FromQuery] WeatherParams data)
         {
             //http://localhost:5152/api/WeatherCal?City=Tel%20Aviv(מה שאני אמורה לקבל משרת האפליקציה)
             BL.WeatherCal_BL bl = new BL.WeatherCal_BL();
             data.Degrees = bl.GetWeather(data.City);
-            return data;
+            return data.Degrees;
         }
 
         // GET api/<WeatherCalController>/5

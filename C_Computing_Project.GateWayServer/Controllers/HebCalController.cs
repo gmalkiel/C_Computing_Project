@@ -11,12 +11,12 @@ namespace C_Computing_Project.GateWayServer.Controllers
     {
         // GET: api/<WebCalController>
         [HttpGet]
-        public HebCalParams Get([FromQuery]HebCalParams data)
+        public string Get([FromQuery]HebCalParams data)
         {
             //http://localhost:5152/api/HebCal?City=IL-Tel%20Aviv(מה שאני צריכה לקבל משרת האפליקציה)
             BL.HebCal_BL bl=new BL.HebCal_BL();
             data= bl.MonthlyHoliday(data.City);
-            return data;
+            return data.Holiday;
         }
 
         // GET api/<WebCalController>/5

@@ -27,8 +27,15 @@ namespace C_Computing_Project.Controllers
             var CModel = new AppServerWeatherCalModel();
             var result = CModel.GetWeatherCalService("Tel Aviv");
             ViewData["Weather"] = result;
-            
-            return View(await _context.Recipe.ToListAsync());
+
+            var CModel2 = new AppServerHebCalModel();
+            var result2 = CModel2.GetHebCalService("IL-Tel Aviv");
+            if (result2 != null)
+            {
+                ViewData["holidy"] = result2;
+            }
+           
+            return View();
         }
 
         public async Task<IActionResult> IndexBread()
@@ -79,10 +86,10 @@ namespace C_Computing_Project.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Name,Description,ImageUrl,Ingredients,Tags")] Recipe recipe)
         {
-            //string temp = "https://www.foodisgood.co.il/wp-content/uploads/2022/04/yeast-free-quick-pizza.jpg";
+            
             var CModel = new AppServerImaggaModel();
-            var result = CModel.GetImaggaService(recipe.ImageUrl);
-            if (result == "false")
+            string result = CModel.GetImaggaService(recipe.ImageUrl);
+            if (result=="false")
             {
                 ViewData["imaggaalert"] = "this is not food";
             }

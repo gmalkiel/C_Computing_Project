@@ -21,13 +21,13 @@
             <div class="form-group">
                 <label asp-for="Description" class="control-label"></label>
                 <input asp-for="Description" class="form-control" />
-                <span asp-validation-for="Description" class="text-danger"></span>
+                <span asp-validation-for="Description" class="text-danger" style="height:40px"></span>
             </div>
             <div class="form-group">
                 <label asp-for="ImageUrl" class="control-label"></label>
                 <input asp-for="ImageUrl" class="form-control" />
                 <span asp-validation-for="ImageUrl" class="text-danger"></span>
-                <span> @ViewData["imaggaalert"]</span>
+                <span style="color:red"> @ViewData["imaggaalert"]</span>
             </div>
             <div class="form-group">
                 <label asp-for="Ingredients" class="control-label"></label>
