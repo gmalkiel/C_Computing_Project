@@ -15,7 +15,7 @@ namespace C_Computing_Project.GateWayServer.Controllers
         {
             //http://localhost:5152/api/WeatherCal?City=Tel%20Aviv(מה שאני אמורה לקבל משרת האפליקציה)
             BL.WeatherCal_BL bl = new BL.WeatherCal_BL();
-            data = bl.GetWeather(data.City);
+            data.Degrees = bl.GetWeather(data.City);
             return data;
         }
 
