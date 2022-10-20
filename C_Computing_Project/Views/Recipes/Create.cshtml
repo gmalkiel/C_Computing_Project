@@ -2,7 +2,7 @@
 
 @{
     ViewData["Title"] = "Create";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
 }
 
 @*<h1>Create</h1>*@
@@ -27,6 +27,7 @@
                 <label asp-for="ImageUrl" class="control-label"></label>
                 <input asp-for="ImageUrl" class="form-control" />
                 <span asp-validation-for="ImageUrl" class="text-danger"></span>
+                <span> @ViewData["imaggaalert"]</span>
             </div>
             <div class="form-group">
                 <label asp-for="Ingredients" class="control-label"></label>

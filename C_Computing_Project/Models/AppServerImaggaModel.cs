@@ -11,7 +11,7 @@ namespace C_Computing_Project.Models
             var client = new RestClient(Url);
             var request = new RestRequest(new Uri(Url), Method.Get);
             RestResponse response = client.Execute(request);
-            return "hi";
+            return response.Content;
         }
     }
 }

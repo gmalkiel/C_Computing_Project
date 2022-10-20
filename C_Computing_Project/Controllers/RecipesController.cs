@@ -20,9 +20,15 @@ namespace C_Computing_Project.Controllers
         }
 
         // GET: Recipes
+
         public async Task<IActionResult> Index()
         {
-              return View(await _context.Recipe.ToListAsync());
+          
+            var CModel = new AppServerWeatherCalModel();
+            var result = CModel.GetWeatherCalService("Tel Aviv");
+            ViewData["Weather"] = result;
+            
+            return View(await _context.Recipe.ToListAsync());
         }
 
         public async Task<IActionResult> IndexBread()
@@ -73,7 +79,15 @@ namespace C_Computing_Project.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Name,Description,ImageUrl,Ingredients,Tags")] Recipe recipe)
         {
-            if (ModelState.IsValid)
+            //string temp = "https://www.foodisgood.co.il/wp-content/uploads/2022/04/yeast-free-quick-pizza.jpg";
+            var CModel = new AppServerImaggaModel();
+            var result = CModel.GetImaggaService(recipe.ImageUrl);
+            if (result == "false")
+            {
+                ViewData["imaggaalert"] = "this is not food";
+            }
+            //else ViewData["imaggaalert"] = string.Empty;
+            if (ModelState.IsValid && result == "true")
             {
                 _context.Add(recipe);
                 await _context.SaveChangesAsync();

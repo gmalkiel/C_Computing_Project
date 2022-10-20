@@ -3,111 +3,378 @@
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
-    string b = "";
+   
 }
-<head>
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karma">
-    <style>
-        body, h1, h2, h3, h4, h5, h6 {
-            font-family: "Karma", sans-serif
-        }
+<html>
+ <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<!--
+Victory HTML CSS Template
+https://templatemo.com/tm-507-victory
+-->
+        <title>Victory HTML CSS Template</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="apple-touch-icon" href="~/apple-touch-icon.png">
 
-        .w3-bar-block .w3-bar-item {
-            padding: 20px
-        }
-    
-    
-    </style>
-    
-</head>
+        <link rel="stylesheet" href="~/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="~/css/fontAwesome.css">
+    <link rel="stylesheet" href="~/css/hero-slider.css">
+    <link rel="stylesheet" href="~/css/owl-carousel.css">
+    <link rel="stylesheet" href="~/css/templatemo-style.css">
 
-@*<h1>Index</h1>*@
+        <link href="https://fonts.googleapis.com/css?family=Spectral:200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
 
-@*<p>
-    <a asp-action="Create">Create New</a>
-</p>*@
-<div class="w3-main w3-content w3-padding" style="max-width:1200px;margin-top:100px">
+        <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+    </head>
 
-    @foreach (var item in Model) {
-        <!-- First Photo Grid-->
-       
-            <div class="w3-row-padding w3-padding-16 w3-center" id="food">
-                <div class="w3-quarter">
+    <body>
+        <div class="header">
+            <div class="container">
+                <a href="#" class="navbar-brand scroll-top">SAG BLOG</a>
+            <div>@ViewData["Weather"] </div>
 
-                    <img src=@Html.DisplayFor(modelItem => item.ImageUrl) style="width:100%">
-                    <h3> @Html.DisplayFor(modelItem => item.Name) </h3>
-                    <h4><a asp-action="Edit" asp-route-id="@item.Id">Edit</a> | <a asp-action="Delete" asp-route-id="@item.Id">Delete</a></h4>
-                   
-                </div>
-                <div class="w3-quarter">
-                    <h2>Ingredients:</h2> <br/>
-                    <h3>@Html.DisplayFor(modelItem => item.Ingredients) </h3>
-
-                    @*<p>Once again, some random text to lorem lorem lorem lorem ipsum text praesent tincidunt ipsum lipsum.</p>*@
-
-                </div>
-                <div class="w3-quarter">
-                    <h2>Description:</h2> <br />
-                    <h3>@Html.DisplayFor(modelItem => item.Description)</h3>
-                    @*<p>Lorem ipsum text praesent tincidunt ipsum lipsum.</p>
-                <p>What else?</p>*@
-                </div>
-                <div class="w3-quarter">
-                    <h2>Tags:</h2> <br />
-                    <h3> @Html.DisplayFor(modelItem => item.Tags)</h3>
-                </div>
-
+                <nav class="navbar navbar-inverse" role="navigation">
+                    <div class="navbar-header">
+                        <button type="button" id="nav-toggle" class="navbar-toggle" data-toggle="collapse" data-target="#main-nav">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+                    <!--/.navbar-header-->
+                    <div id="main-nav" class="collapse navbar-collapse">
+                        <ul class="nav navbar-nav">
+                            <li><a href="~/index.html">Home</a></li>
+                            <li><a href="~/menu.html">Our Recipes</a></li>
+                            <li><a href="~/blog.html">Blog Entries</a></li>
+                            <li><a href="~/contact.html">Contact Us</a></li>
+                            <li><a href="../Views/Recipes/Create.cshtml">ADD</a></li>
+                        </ul>
+                    </div>
+                    <!--/.navbar-collapse-->
+                </nav>
+                <!--/.navbar-->
             </div>
-        
-    }
-</div>
-    
-@*<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Description)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ImageUrl)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Ingredients)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Tags)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-               <img src= @Html.DisplayFor(modelItem => item.ImageUrl)/>
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Ingredients)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Tags)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>*@
+            <!--/.container-->
+        </div>
+        <!--/.header-->
+
+
+        <section class="banner">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-md-offset-3">
+                        <h4>Here you can find delecious recipes for a</h4>
+                        <h2>Variety Of Foods</h2>
+                        <p>The recipes at your service. You are invited to click new recipes and write us what you think about the recipes.</p>
+                        <div class="primary-button">
+                        <a href="../Views/Recipes/Create.cshtml">Add Right Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cook-delecious">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 col-md-offset-1">
+                        <div class="first-image">
+                        <img src="~/img/cook_01.jpg" alt="">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="cook-content">
+                            <h4>Please Choose</h4>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="second-image">
+                        <img src="~/img/cook_02.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="services">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 col-sm-6 col-xs-12">
+                        <div class="service-item">
+                        <a href="../Views/Recipes/IndexSalad.cshtml">
+                                <img src="https://media.istockphoto.com/photos/homemade-autumn-apple-walnut-spinach-salad-picture-id598567798?k=20&m=598567798&s=612x612&w=0&h=1L3VM0tAPpAlUa6OM5NMACGmleEygIdI2sficMyuAOc=" alt="Salads">
+                                <h4>Salads</h4>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6 col-xs-12">
+                        <div class="service-item">
+                        <a href="../Views/Recipes/IndexFish.cshtml">
+                                <img src="https://media.istockphoto.com/photos/fillet-of-salmon-with-vegetable-picture-id175028181?k=20&m=175028181&s=612x612&w=0&h=18QGgb9V2Mxcf3MG1AHL53XtIWLFsbWWPmRb5ngAhIs=" alt="Fish">
+                                <h4>Fish</h4>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6 col-xs-12">
+                        <div class="service-item">
+                        <a href="../Views/Recipes/IndexBread.cshtml">
+                                <img src="https://media.istockphoto.com/photos/loaf-of-bread-still-life-picture-id947886300?k=20&m=947886300&s=612x612&w=0&h=KboPTpxXhTTc8PHsdsMiBj6Z6yRqmXn9Esr2Hf7n1I0=" alt="Breads">
+                                <h4>Breads</h4>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6 col-xs-12">
+                        <div class="service-item">
+                        <a href="../Views/Recipes/IndexDessert.cshtml">
+                                <img src="https://media.istockphoto.com/photos/vanilla-new-york-cheesecake-decorated-with-fresh-berries-picture-id1356624996?k=20&m=1356624996&s=612x612&w=0&h=AB2U-klxtuZyuiYUfVxo8V_OAHzdTaoblNc3Hjy6OrU=" alt="Desserts">
+                                <h4>Desserts</h4>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+
+
+
+        <section class="get-app">
+            <div class="container">
+                <div class="row">
+                    <div class="heading">
+                        <h2>Get application for your phone</h2>
+                    </div>
+                    <div class="primary-white-button">
+                        <a href="#">Download now</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <section class="featured-food">
+            <div class="container">
+                <div class="row">
+                    <div class="heading">
+                        <h2>Weekly Featured Food</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="food-item">
+                            <h2>Breakfast</h2>
+                        <img src="~/img/breakfast_item.jpg" alt="">
+                            <div class="price">$4.50</div>
+                            <div class="text-content">
+                                <h4>Kale Chips Art Party</h4>
+                                <p>Dreamcatcher squid ennui cliche chicharros nes echo  small batch jean shorts hexagon street art knausgaard wolf...</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="food-item">
+                            <h2>Lunch</h2>
+                        <img src="~/img/lunch_item.jpg" alt="">
+                            <div class="price">$7.50</div>
+                            <div class="text-content">
+                                <h4>Taiyaki Gastro Tousled</h4>
+                                <p>Dreamcatcher squid ennui cliche chicharros nes echo  small batch jean shorts hexagon street art knausgaard wolf...</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="food-item">
+                            <h2>Dinner</h2>
+                        <img src="~/img/dinner_item.jpg" alt="">
+                            <div class="price">$12.50</div>
+                            <div class="text-content">
+                                <h4>Batch Squid Jean Shorts</h4>
+                                <p>Dreamcatcher squid ennui cliche chicharros nes echo  small batch jean shorts hexagon street art knausgaard wolf...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <section class="our-blog">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="heading">
+                            <h2>Our blog post</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="blog-post">
+                        <img src="~/img/blog_post_01.jpg" alt="">
+                            <div class="date">26 Oct 2020</div>
+                            <div class="right-content">
+                                <h4>Stumptown Tofu Schlitz</h4>
+                                <span>Branding / Admin</span>
+                                <p>Skateboard iceland twee tofu shaman crucifix vice before they sold out corn hole occupy drinking vinegar chambra meggings kale chips hexagon...</p>
+                                <div class="text-button">
+                                    <a href="#">Continue Reading</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="blog-post">
+                        <img src="~/img/blog_post_02.jpg" alt="">
+                            <div class="date">21 Oct 2020</div>
+                            <div class="right-content">
+                                <h4>Succulents Hashtag Folk</h4>
+                                <span>Branding / Admin</span>
+                                <p>Skateboard iceland twee tofu shaman crucifix vice before they sold out corn hole occupy drinking vinegar chambra meggings kale chips hexagon...</p>
+                                <div class="text-button">
+                                    <a href="#">Continue Reading</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="blog-post">
+                        <img src="~/img/blog_post_03.jpg" alt="">
+                            <div class="date">11 Oct 2020</div>
+                            <div class="right-content">
+                                <h4>Knaus Sriracha Pinterest</h4>
+                                <span>Dessert / Chef</span>
+                                <p>Skateboard iceland twee tofu shaman crucifix vice before they sold out corn hole occupy drinking vinegar chambra meggings kale chips hexagon...</p>
+                                <div class="text-button">
+                                    <a href="#">Continue Reading</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="blog-post">
+                        <img src="~/img/blog_post_04.jpg" alt="">
+                            <div class="date">03 Oct 2020</div>
+                            <div class="right-content">
+                                <h4>Crucifix Selvage Coat</h4>
+                                <span>Plate / Chef</span>
+                                <p>Skateboard iceland twee tofu shaman crucifix vice before they sold out corn hole occupy drinking vinegar chambra meggings kale chips hexagon...</p>
+                                <div class="text-button">
+                                    <a href="#">Continue Reading</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <section class="sign-up">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="heading">
+                            <h2>Signup for our newsletters</h2>
+                        </div>
+                    </div>
+                </div>
+                <form id="contact" action="" method="get">
+                    <div class="row">
+                        <div class="col-md-4 col-md-offset-3">
+                            <fieldset>
+                                <input name="email" type="text" class="form-control" id="email" placeholder="Enter your email here..." required="">
+                            </fieldset>
+                        </div>
+                        <div class="col-md-2">
+                            <fieldset>
+                                <button type="submit" id="form-submit" class="btn">Send Message</button>
+                            </fieldset>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+
+
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <p>Copyright &copy; 2020 Victory Template</p>
+                    </div>
+                    <div class="col-md-4">
+                        <ul class="social-icons">
+                            <li><a rel="nofollow" href="https://fb.com/templatemo"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                            <li><a href="#"><i class="fa fa-rss"></i></a></li>
+                            <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <p>Design: TemplateMo</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+
+        <script src="js/vendor/bootstrap.min.js"></script>
+
+        <script src="js/plugins.js"></script>
+        <script src="js/main.js"></script>
+
+        <script type="text/javascript">
+            $(document).ready(function () {
+                // navigation click actions
+                $('.scroll-link').on('click', function (event) {
+                    event.preventDefault();
+                    var sectionID = $(this).attr("data-id");
+                    scrollToID('#' + sectionID, 750);
+                });
+                // scroll to top action
+                $('.scroll-top').on('click', function (event) {
+                    event.preventDefault();
+                    $('html, body').animate({ scrollTop: 0 }, 'slow');
+                });
+                // mobile nav toggle
+                $('#nav-toggle').on('click', function (event) {
+                    event.preventDefault();
+                    $('#main-nav').toggleClass("open");
+                });
+            });
+            // scroll function
+            function scrollToID(id, speed) {
+                var offSet = 0;
+                var targetOffset = $(id).offset().top - offSet;
+                var mainNav = $('#main-nav');
+                $('html,body').animate({ scrollTop: targetOffset }, speed);
+                if (mainNav.hasClass("open")) {
+                    mainNav.css("height", "1px").removeClass("in").addClass("collapse");
+                    mainNav.removeClass("open");
+                }
+            }
+            if (typeof console === "undefined") {
+                console = {
+                    log: function () { }
+                };
+            }
+        </script>
+    </body>
+
+</html>
