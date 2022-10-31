@@ -16,22 +16,31 @@ namespace BL
             {
                 Root myPic = JsonConvert.DeserializeObject<Root>(ImaggaJson);
                 imaggaParams.ImageSource = picUrl;
-                imaggaParams.IsFood = tagChek(myPic);
+                imaggaParams.IsFood=false;
+                foreach (var item in myPic.result.tags)
+                {
+                    if (item.tag.en == "food"&& item.confidence>70)
+                    {
+                        imaggaParams.IsFood = true;
+                        break;
+                    }
+                }
+                //imaggaParams.IsFood = tagChek(myPic);
             }
             return imaggaParams;
         }
-        public bool tagChek(Root ImaggaRoot)
-        {
-            bool flag = false;
-            foreach (var item in ImaggaRoot.result.tags)
-            {
-                if (item.tag.en == "food")
-                {
-                    flag = true;
-                    break;
-                }
-            }
-            return flag;
-        }
+        //public bool tagChek(Root ImaggaRoot)
+        //{
+        //    bool flag = false;
+        //    foreach (var item in ImaggaRoot.result.tags)
+        //    {
+        //        if (item.tag.en == "food")
+        //        {
+        //            flag = true;
+        //            break;
+        //        }
+        //    }
+        //    return flag;
+        //}
     }
 }
